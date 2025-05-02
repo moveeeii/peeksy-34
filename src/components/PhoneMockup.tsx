@@ -42,14 +42,25 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
   const { theme } = useTheme();
   
   return (
-    <div className={`relative mx-auto w-full max-w-[375px] ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}>
-      {/* Phone frame */}
-      <div className="relative rounded-[40px] overflow-hidden border-[12px] border-black">
-        {/* Camera notch */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[25px] bg-black rounded-b-[20px] z-10"></div>
+    <div className="relative mx-auto w-full max-w-[375px]">
+      {/* Phone frame with silver border */}
+      <div className="relative rounded-[40px] overflow-hidden border-[14px] border-black bg-gray-200 shadow-xl">
+        {/* Silver inner border */}
+        <div className="absolute inset-[-2px] rounded-[35px] border-[2px] border-gray-300 pointer-events-none"></div>
+        
+        {/* iPhone-style camera notch */}
+        <div className="w-full h-[32px] bg-black relative">
+          {/* Dynamic Island / Camera notch */}
+          <div className="absolute left-1/2 -translate-x-1/2 w-[160px] h-[32px] bg-black rounded-b-[16px] z-20 flex items-center justify-center">
+            {/* Camera and sensors */}
+            <div className="absolute left-[40px] w-[8px] h-[8px] rounded-full bg-[#0077e6] opacity-50"></div>
+            <div className="absolute left-[55px] w-[12px] h-[12px] rounded-full bg-gray-800"></div>
+            <div className="absolute right-[40px] w-[8px] h-[8px] rounded-full bg-[#f57c00] opacity-50"></div>
+          </div>
+        </div>
         
         {/* App content */}
-        <div className="h-[600px] overflow-y-auto scrollbar-none">
+        <div className={`h-[600px] overflow-y-auto scrollbar-none ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}>
           <ProfileHeader 
             username={username} 
             setUsername={setUsername}

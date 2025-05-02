@@ -98,7 +98,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             </button>
           </div>
         ) : (
-          <h1 className={`text-xl font-semibold flex items-center ${textColor}`} onClick={() => setEditing(true)}>
+          <h1 className={`text-xl font-semibold flex items-center ${textColor} cursor-pointer`} onClick={() => setEditing(true)}>
             {username}
             <Badge variant="outline" className="ml-2 bg-blue-500 text-white rounded-full p-0.5">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -172,7 +172,10 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         {profileInfo.description.map((line, index) => (
           <div key={index} className={`text-sm mb-0.5 ${textColor}`}>{line}</div>
         ))}
-        <a href={`https://${profileInfo.website}`} className="text-sm text-blue-600 mb-1 block">{profileInfo.website}</a>
+        {/* Non-clickable website display */}
+        <div className="text-sm text-blue-600 mb-1 block pointer-events-none">
+          {profileInfo.website}
+        </div>
         <div className={`text-sm ${secondaryColor}`}>Followed by {profileInfo.followedBy}</div>
       </div>
 

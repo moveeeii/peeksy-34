@@ -8,8 +8,8 @@ import PhoneMockup from '@/components/PhoneMockup';
 import ProfileSettings from '@/components/ProfileSettings';
 import { Button } from '@/components/ui/button';
 
-// Default placeholder image - using a public URL
-const defaultProfileImage = 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80';
+// Default profile image from the provided URL
+const defaultProfileImage = 'https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png';
 
 const Index = () => {
   const { theme, setTheme } = useTheme();
@@ -111,7 +111,7 @@ const Index = () => {
             <div className={`grid grid-cols-4 gap-2 h-[300px] overflow-y-auto p-2 rounded border ${theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'} scrollbar-thin`}>
               {images.length > 0 ? (
                 images.map((image, index) => (
-                  <div key={index} className="relative aspect-square">
+                  <div key={index} className="relative aspect-[3/4]">
                     <img 
                       src={image} 
                       alt={`Uploaded ${index}`} 

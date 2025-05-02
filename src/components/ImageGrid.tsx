@@ -1,6 +1,7 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd';
+import { useTheme } from 'next-themes';
 
 interface ImageGridProps {
   images: string[];
@@ -8,6 +9,8 @@ interface ImageGridProps {
 }
 
 const ImageGrid: React.FC<ImageGridProps> = ({ images, onReorder }) => {
+  const { theme } = useTheme();
+  
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) return;
     
@@ -25,7 +28,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images, onReorder }) => {
           <div 
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className="instagram-grid"
+            className={`grid grid-cols-3 gap-[1px] ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}
           >
             {images.map((image, index) => (
               <Draggable key={`image-${index}`} draggableId={`image-${index}`} index={index}>
@@ -34,16 +37,20 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images, onReorder }) => {
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
-                    className={`instagram-grid-item ${snapshot.isDragging ? "opacity-50" : ""}`}
+                    className={`aspect-[3/4] ${snapshot.isDragging ? "opacity-50" : ""} w-full`}
                   >
-                    <img src={image} alt={`Grid item ${index + 1}`} />
+                    <img 
+                      src={image} 
+                      alt={`Grid item ${index + 1}`} 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 )}
               </Draggable>
             ))}
             {provided.placeholder}
             {images.length === 0 && (
-              <div className="col-span-3 flex justify-center items-center h-48 text-gray-500">
+              <div className={`col-span-3 flex justify-center items-center h-48 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                 Upload images to see your grid
               </div>
             )}

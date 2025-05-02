@@ -90,12 +90,12 @@
 .instagram-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 1px;
   width: 100%;
 }
 
 .instagram-grid-item {
-  aspect-ratio: 1/1;
+  aspect-ratio: 3/4;
   position: relative;
   cursor: move;
 }
