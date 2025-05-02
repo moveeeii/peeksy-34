@@ -1,32 +1,35 @@
 
 import React, { useState } from 'react';
 import { toast, Toaster } from 'sonner';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import ImageUpload from '@/components/ImageUpload';
 import PhoneMockup from '@/components/PhoneMockup';
 import ProfileSettings from '@/components/ProfileSettings';
+import { Button } from '@/components/ui/button';
 
-// Default placeholder image
+// Default placeholder image - using a public URL
 const defaultProfileImage = 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=80';
 
 const Index = () => {
+  const { theme, setTheme } = useTheme();
   const [images, setImages] = useState<string[]>([]);
-  const [username, setUsername] = useState<string>('neshawoolery');
+  const [username, setUsername] = useState<string>('architectanddesign');
   const [profileImage, setProfileImage] = useState<string>(defaultProfileImage);
   const [showStories, setShowStories] = useState<boolean>(true);
   const [profileInfo, setProfileInfo] = useState({
-    displayName: 'Nesha | Business Mentor',
-    bio: 'Entrepreneur',
+    displayName: 'Architecture & Design',
+    bio: 'Architecture',
     description: [
-      '• Build a profitable online business without the hustle & crazy work hours',
-      '• Podcast: The Simple Business Show 🎙️',
-      '• Free Masterclass ↓'
+      '🌐 The best Architecture & Design platform.',
+      '📩 Contact: info@architectanddesign.net',
     ],
-    website: 'neshawoolery.com/instagram',
+    website: 'linktr.ee/architectanddesign',
     followedBy: 'tropicmediaco, _emeraldscity and 20 others'
   });
   const [stats, setStats] = useState({
-    followers: 9963,
-    following: 79
+    followers: 7500000,
+    following: 30
   });
   const [settingsOpen, setSettingsOpen] = useState(false);
 
@@ -57,10 +60,22 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
+    <div className={`min-h-screen py-8 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
       <div className="container px-4 mx-auto">
-        <h1 className="text-3xl font-bold text-center mb-2 text-gray-800">Instagram Feed Preview</h1>
-        <p className="text-center text-gray-600 mb-4">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className={`text-3xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+            Instagram Feed Preview
+          </h1>
+          <Button 
+            variant="outline" 
+            size="icon" 
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="rounded-full"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </Button>
+        </div>
+        <p className={`text-center ${theme === 'dark' ? 'text-gray-300' : 'text-gray-600'} mb-4`}>
           Upload, arrange, and preview your Instagram feed
         </p>
         
@@ -75,12 +90,14 @@ const Index = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-4">Upload Your Images</h2>
+          <div className={`p-6 rounded-lg shadow-md ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
+            <h2 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Upload Your Images</h2>
             <ImageUpload onImagesAdded={handleImagesAdded} />
             
             <div className="flex justify-between items-center mb-4">
-              <h3 className="font-medium">Your Images ({images.length})</h3>
+              <h3 className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+                Your Images ({images.length})
+              </h3>
               {images.length > 0 && (
                 <button 
                   onClick={clearAllImages}
@@ -91,7 +108,7 @@ const Index = () => {
               )}
             </div>
             
-            <div className="grid grid-cols-4 gap-2 h-[300px] overflow-y-auto p-2 bg-gray-50 rounded border">
+            <div className={`grid grid-cols-4 gap-2 h-[300px] overflow-y-auto p-2 rounded border ${theme === 'dark' ? 'bg-gray-700 border-gray-600' : 'bg-gray-50 border-gray-200'} scrollbar-thin`}>
               {images.length > 0 ? (
                 images.map((image, index) => (
                   <div key={index} className="relative aspect-square">
@@ -109,7 +126,7 @@ const Index = () => {
                   </div>
                 ))
               ) : (
-                <div className="col-span-4 flex items-center justify-center h-full text-gray-500">
+                <div className={`col-span-4 flex items-center justify-center h-full ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
                   No images uploaded yet
                 </div>
               )}
@@ -132,7 +149,7 @@ const Index = () => {
               images={images}
               onReorder={handleReorder}
             />
-            <p className="text-center text-sm text-gray-500 mt-4">
+            <p className={`text-center text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-4`}>
               Click on username to edit • Drag images to reorder
             </p>
           </div>
