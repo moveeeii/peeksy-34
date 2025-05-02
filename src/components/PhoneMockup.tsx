@@ -3,6 +3,7 @@ import React from 'react';
 import ProfileHeader from './ProfileHeader';
 import InstagramTabs from './InstagramTabs';
 import { useTheme } from 'next-themes';
+import { Settings } from 'lucide-react';
 
 interface ProfileInfo {
   displayName: string;
@@ -26,6 +27,7 @@ interface PhoneMockupProps {
   };
   images: string[];
   onReorder: (newOrder: string[]) => void;
+  onOpenSettings: () => void;
 }
 
 const PhoneMockup: React.FC<PhoneMockupProps> = ({
@@ -37,7 +39,8 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
   showStories = true,
   stats,
   images,
-  onReorder
+  onReorder,
+  onOpenSettings
 }) => {
   const { theme } = useTheme();
   
@@ -60,7 +63,7 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
         </div>
         
         {/* App content */}
-        <div className={`h-[600px] overflow-y-auto scrollbar-none ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}>
+        <div className={`h-[600px] overflow-y-auto scrollbar-none ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'} rounded-b-[25px]`}>
           <ProfileHeader 
             username={username} 
             setUsername={setUsername}
@@ -73,12 +76,13 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
               followers: stats.followers,
               following: stats.following
             }}
+            onOpenSettings={onOpenSettings}
           />
           <InstagramTabs images={images} onReorder={onReorder} />
         </div>
 
         {/* Bottom nav */}
-        <div className={`h-16 border-t ${theme === 'dark' ? 'border-gray-800 bg-[#121212]' : 'border-gray-200 bg-white'} flex justify-around items-center`}>
+        <div className={`h-16 border-t ${theme === 'dark' ? 'border-gray-800 bg-[#121212]' : 'border-gray-200 bg-white'} flex justify-around items-center rounded-b-[25px]`}>
           <button className="p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
           </button>

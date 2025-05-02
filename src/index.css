@@ -162,3 +162,12 @@
   padding: 2px;
   border-radius: 50%;
 }
+
+/* Instagram tabs with bottom indicator */
+.instagram-tab {
+  @apply flex-1 text-center py-3 border-b-2 border-transparent;
+}
+
+.instagram-tab.active {
+  @apply border-b-2 border-gray-900 dark:border-white;
+}

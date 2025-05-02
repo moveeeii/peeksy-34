@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useTheme } from 'next-themes';
+import { Settings } from 'lucide-react';
 
 // Default placeholder story images - using public URLs
 const defaultStoryImages = [
@@ -33,6 +34,7 @@ interface ProfileHeaderProps {
     followers: number;
     following: number;
   };
+  onOpenSettings: () => void;
 }
 
 const ProfileHeader: React.FC<ProfileHeaderProps> = ({ 
@@ -42,7 +44,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   setProfileImage,
   profileInfo,
   showStories = true,
-  stats
+  stats,
+  onOpenSettings
 }) => {
   const [editing, setEditing] = useState(false);
   const [tempUsername, setTempUsername] = useState(username);
@@ -98,7 +101,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
             </button>
           </div>
         ) : (
-          <h1 className={`text-xl font-semibold flex items-center ${textColor} cursor-pointer`} onClick={() => setEditing(true)}>
+          <h1 className={`text-lg font-semibold flex items-center ${textColor} cursor-pointer`} onClick={() => setEditing(true)}>
             {username}
             <Badge variant="outline" className="ml-2 bg-blue-500 text-white rounded-full p-0.5">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -113,21 +116,17 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               <path d="M3 9l9 6 9-6"></path>
             </svg>
           </button>
-          <button className={`${textColor}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="1"/>
-              <circle cx="19" cy="12" r="1"/>
-              <circle cx="5" cy="12" r="1"/>
-            </svg>
+          <button className={`${textColor}`} onClick={onOpenSettings}>
+            <Settings size={24} />
           </button>
         </div>
       </div>
 
       {/* Profile info section */}
-      <div className="flex mb-5">
+      <div className="flex mb-5 items-center">
         <div className="mr-8 relative">
-          <div className="w-20 h-20 rounded-full overflow-hidden" style={{background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)'}}>
-            <div className="w-19 h-19 m-[2px] rounded-full overflow-hidden border-2 border-white">
+          <div className="w-18 h-18 rounded-full overflow-hidden" style={{background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)'}}>
+            <div className="w-17 h-17 m-[2px] rounded-full overflow-hidden border-2 border-white">
               <img 
                 src={profileImage} 
                 alt="Profile" 
@@ -135,7 +134,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
               />
             </div>
           </div>
-          <label className="absolute bottom-0 right-0 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center cursor-pointer">
+          <label className="absolute bottom-0 right-0 bg-primary text-white rounded-full w-5 h-5 flex items-center justify-center cursor-pointer">
             <span className="text-xs">+</span>
             <input 
               type="file" 
