@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import defaultProfileImage from '/public/lovable-uploads/80960353-ec92-431d-a1bd-84a7beb0bdad.png';
+
+// Using a placeholder image instead of an import
+const defaultProfileImage = 'https://via.placeholder.com/150';
 
 interface ProfileHeaderProps {
   username: string;
@@ -141,31 +142,31 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       <div className="flex space-x-4 overflow-x-auto py-2">
         <div className="flex flex-col items-center">
           <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="/placeholder.svg" alt="Highlight" className="w-full h-full object-cover" />
+            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
           </div>
           <span className="text-xs">results</span>
         </div>
         <div className="flex flex-col items-center">
           <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="/placeholder.svg" alt="Highlight" className="w-full h-full object-cover" />
+            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
           </div>
           <span className="text-xs">podcast</span>
         </div>
         <div className="flex flex-col items-center">
           <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="/placeholder.svg" alt="Highlight" className="w-full h-full object-cover" />
+            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
           </div>
           <span className="text-xs">results</span>
         </div>
         <div className="flex flex-col items-center">
           <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="/placeholder.svg" alt="Highlight" className="w-full h-full object-cover" />
+            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
           </div>
           <span className="text-xs">free trainings</span>
         </div>
         <div className="flex flex-col items-center">
           <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="/placeholder.svg" alt="Highlight" className="w-full h-full object-cover" />
+            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
           </div>
           <span className="text-xs">about</span>
         </div>

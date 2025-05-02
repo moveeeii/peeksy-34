@@ -3,7 +3,9 @@ import React, { useState } from 'react';
 import { Toaster } from 'sonner';
 import ImageUpload from '@/components/ImageUpload';
 import PhoneMockup from '@/components/PhoneMockup';
-import defaultProfileImage from '/public/lovable-uploads/80960353-ec92-431d-a1bd-84a7beb0bdad.png';
+
+// Default placeholder image
+const defaultProfileImage = 'https://via.placeholder.com/150';
 
 const Index = () => {
   const [images, setImages] = useState<string[]>([]);
