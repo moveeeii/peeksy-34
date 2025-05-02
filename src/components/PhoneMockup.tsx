@@ -1,10 +1,8 @@
-
 import React from 'react';
 import ProfileHeader from './ProfileHeader';
 import InstagramTabs from './InstagramTabs';
 import { useTheme } from 'next-themes';
 import { Settings } from 'lucide-react';
-
 interface ProfileInfo {
   displayName: string;
   bio: string;
@@ -12,7 +10,6 @@ interface ProfileInfo {
   website: string;
   followedBy: string;
 }
-
 interface PhoneMockupProps {
   username: string;
   setUsername: (username: string) => void;
@@ -29,7 +26,6 @@ interface PhoneMockupProps {
   onReorder: (newOrder: string[]) => void;
   onOpenSettings: () => void;
 }
-
 const PhoneMockup: React.FC<PhoneMockupProps> = ({
   username,
   setUsername,
@@ -42,10 +38,10 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
   onReorder,
   onOpenSettings
 }) => {
-  const { theme } = useTheme();
-  
-  return (
-    <div className="relative mx-auto w-full max-w-[375px]">
+  const {
+    theme
+  } = useTheme();
+  return <div className="relative mx-auto w-full max-w-[375px]">
       {/* Phone frame with silver border */}
       <div className="relative rounded-[40px] overflow-hidden border-[14px] border-black bg-gray-200 shadow-xl">
         {/* Silver inner border */}
@@ -64,20 +60,11 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
         
         {/* App content */}
         <div className={`h-[600px] overflow-y-auto scrollbar-none ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'} rounded-b-[25px]`}>
-          <ProfileHeader 
-            username={username} 
-            setUsername={setUsername}
-            profileImage={profileImage}
-            setProfileImage={setProfileImage}
-            profileInfo={profileInfo}
-            showStories={showStories}
-            stats={{
-              posts: images.length,
-              followers: stats.followers,
-              following: stats.following
-            }}
-            onOpenSettings={onOpenSettings}
-          />
+          <ProfileHeader username={username} setUsername={setUsername} profileImage={profileImage} setProfileImage={setProfileImage} profileInfo={profileInfo} showStories={showStories} stats={{
+          posts: images.length,
+          followers: stats.followers,
+          following: stats.following
+        }} onOpenSettings={onOpenSettings} />
           <InstagramTabs images={images} onReorder={onReorder} />
         </div>
 
@@ -100,8 +87,6 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
           </button>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default PhoneMockup;
