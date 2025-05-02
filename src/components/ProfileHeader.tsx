@@ -1,14 +1,31 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 
-// Using a placeholder image instead of an import
-const defaultProfileImage = 'https://via.placeholder.com/150';
+// Default placeholder story images
+const defaultStoryImages = [
+  "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=60&q=80",
+  "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=60&q=80",
+  "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=60&q=80",
+  "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=60&q=80",
+  "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=60&q=80"
+];
+
+interface ProfileInfo {
+  displayName: string;
+  bio: string;
+  description: string[];
+  website: string;
+  followedBy: string;
+}
 
 interface ProfileHeaderProps {
   username: string;
   setUsername: (username: string) => void;
   profileImage: string;
   setProfileImage: (image: string) => void;
+  profileInfo: ProfileInfo;
+  showStories?: boolean;
   stats: {
     posts: number;
     followers: number;
@@ -21,6 +38,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   setUsername, 
   profileImage, 
   setProfileImage,
+  profileInfo,
+  showStories = true,
   stats
 }) => {
   const [editing, setEditing] = useState(false);
@@ -43,6 +62,8 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
     setUsername(tempUsername);
     setEditing(false);
   };
+
+  const storyLabels = ["results", "podcast", "clients", "free trainings", "about"];
 
   return (
     <div className="px-4 py-3">
@@ -88,7 +109,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
         <div className="mr-8 relative">
           <div className="w-20 h-20 rounded-full border-2 border-primary overflow-hidden">
             <img 
-              src={profileImage || defaultProfileImage} 
+              src={profileImage} 
               alt="Profile" 
               className="w-full h-full object-cover"
             />
@@ -121,13 +142,13 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
 
       {/* Profile description and buttons */}
       <div className="mb-4">
-        <div className="mb-1 font-semibold">Nesha | Business Mentor</div>
-        <div className="text-sm text-gray-600 mb-1">Entrepreneur</div>
-        <div className="text-sm mb-1">• Build a profitable online business without the hustle & crazy work hours</div>
-        <div className="text-sm mb-1">• Podcast: The Simple Business Show 🎙️</div>
-        <div className="text-sm mb-1">• Free Masterclass ↓</div>
-        <div className="text-sm text-blue-600 mb-1">neshawoolery.com/instagram</div>
-        <div className="text-sm text-gray-500">Followed by tropicmediaco, _emeraldscity and 20 others</div>
+        <div className="mb-1 font-semibold">{profileInfo.displayName}</div>
+        <div className="text-sm text-gray-600 mb-1">{profileInfo.bio}</div>
+        {profileInfo.description.map((line, index) => (
+          <div key={index} className="text-sm mb-1">{line}</div>
+        ))}
+        <div className="text-sm text-blue-600 mb-1">{profileInfo.website}</div>
+        <div className="text-sm text-gray-500">Followed by {profileInfo.followedBy}</div>
       </div>
 
       {/* Action buttons */}
@@ -139,38 +160,18 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
       </div>
 
       {/* Highlights */}
-      <div className="flex space-x-4 overflow-x-auto py-2">
-        <div className="flex flex-col items-center">
-          <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
-          </div>
-          <span className="text-xs">results</span>
+      {showStories && (
+        <div className="flex space-x-4 overflow-x-auto py-2">
+          {defaultStoryImages.slice(0, 5).map((image, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <div className="highlight-circle w-14 h-14 rounded-full border border-gray-300 mb-1 overflow-hidden">
+                <img src={image} alt="Highlight" className="w-full h-full object-cover" />
+              </div>
+              <span className="text-xs">{storyLabels[index]}</span>
+            </div>
+          ))}
         </div>
-        <div className="flex flex-col items-center">
-          <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
-          </div>
-          <span className="text-xs">podcast</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
-          </div>
-          <span className="text-xs">results</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
-          </div>
-          <span className="text-xs">free trainings</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <div className="highlight-circle border border-gray-300 mb-1">
-            <img src="https://via.placeholder.com/60" alt="Highlight" className="w-full h-full object-cover" />
-          </div>
-          <span className="text-xs">about</span>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

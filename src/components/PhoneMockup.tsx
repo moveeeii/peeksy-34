@@ -3,11 +3,21 @@ import React from 'react';
 import ProfileHeader from './ProfileHeader';
 import InstagramTabs from './InstagramTabs';
 
+interface ProfileInfo {
+  displayName: string;
+  bio: string;
+  description: string[];
+  website: string;
+  followedBy: string;
+}
+
 interface PhoneMockupProps {
   username: string;
   setUsername: (username: string) => void;
   profileImage: string;
   setProfileImage: (image: string) => void;
+  profileInfo: ProfileInfo;
+  showStories?: boolean;
   stats: {
     posts: number;
     followers: number;
@@ -22,22 +32,14 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
   setUsername,
   profileImage,
   setProfileImage,
+  profileInfo,
+  showStories = true,
   stats,
   images,
   onReorder
 }) => {
   return (
     <div className="phone-mockup bg-white border-4 border-gray-300 mx-auto">
-      {/* Status bar */}
-      <div className="h-6 bg-gray-100 flex justify-between items-center px-4 text-xs">
-        <div>12:30</div>
-        <div className="flex space-x-1">
-          <span>📶</span>
-          <span>📡</span>
-          <span>🔋</span>
-        </div>
-      </div>
-
       {/* App content */}
       <div className="h-[600px] overflow-y-auto">
         <ProfileHeader 
@@ -45,6 +47,8 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
           setUsername={setUsername}
           profileImage={profileImage}
           setProfileImage={setProfileImage}
+          profileInfo={profileInfo}
+          showStories={showStories}
           stats={{
             posts: images.length,
             followers: stats.followers,
