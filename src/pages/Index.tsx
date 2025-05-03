@@ -81,7 +81,7 @@ const Index = () => {
         
         <div className="grid md:grid-cols-2 gap-8">
           <div className={`p-6 rounded-lg shadow-md ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
-            <h2 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Upload Your Images</h2>
+            <h2 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>upload your images</h2>
             <ImageUpload onImagesAdded={handleImagesAdded} />
             
             <div className="flex justify-between items-center mb-4">
@@ -141,7 +141,7 @@ const Index = () => {
               onOpenSettings={() => setSettingsOpen(true)}
             />
             <p className={`text-center text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-4`}>
-              Click on the settings on top right to customize the profile • Drag images to reorder
+              click on the settings on top right to customize the profile • drag images to reorder
             </p>
           </div>
         </div>

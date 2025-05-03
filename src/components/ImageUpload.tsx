@@ -49,11 +49,11 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImagesAdded }) => {
         <Upload className="mx-auto h-12 w-12 text-gray-400" />
         <p className="mt-2 text-sm text-gray-600">
           {isDragActive
-            ? "Drop the images here..."
-            : "Drag 'n' drop images here, or click to select files"}
+            ? "drop the images here..."
+            : "drag 'n' drop images here, or click to select files"}
         </p>
         <Button variant="outline" className="mt-4">
-          Select Images
+          select images
         </Button>
       </div>
     </div>
