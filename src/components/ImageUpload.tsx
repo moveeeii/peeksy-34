@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Upload } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { toast } from 'sonner';
 
 interface ImageUploadProps {
   onImagesAdded: (images: string[]) => void;
@@ -27,7 +26,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImagesAdded }) => {
       })
     ).then((results) => {
       onImagesAdded(results);
-      toast.success(`${results.length} image${results.length > 1 ? 's' : ''} uploaded`);
+      // Toast notification for uploads removed
     });
   }, [onImagesAdded]);
 

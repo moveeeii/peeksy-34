@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { toast, Toaster } from 'sonner';
 import { Moon, Sun } from 'lucide-react';
@@ -36,12 +35,10 @@ const Index = () => {
 
   const handleImagesAdded = (newImages: string[]) => {
     setImages((prev) => [...prev, ...newImages]);
-    toast.success(`${newImages.length} image${newImages.length > 1 ? 's' : ''} added`);
   };
 
   const handleReorder = (newOrder: string[]) => {
     setImages(newOrder);
-    // Toast notification for reordering removed
   };
 
   const clearAllImages = () => {
