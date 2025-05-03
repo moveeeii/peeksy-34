@@ -56,9 +56,6 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onImagesAdded }) => {
           Select Images
         </Button>
       </div>
-      <p className="text-xs text-center mt-2 text-gray-500">
-        Upload square images for best results
-      </p>
     </div>
   );
 };
