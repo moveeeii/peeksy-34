@@ -7,7 +7,9 @@ import ImageUpload from '@/components/ImageUpload';
 import PhoneMockup from '@/components/PhoneMockup';
 import ProfileSettings from '@/components/ProfileSettings';
 import { Button } from '@/components/ui/button';
-import Logo from '/peeksy-logo-dark.png' 
+import LogoDark from '/peeksy-logo-dark.png';
+import LogoLight from '/peeksy-logo-light.png'; 
+
 // Default profile image from the provided URL
 const defaultProfileImage = '/tumlet-half.png';
 
@@ -62,7 +64,10 @@ const Index = () => {
     <div className={`min-h-screen py-8 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
       <div className="container px-4 mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <img className="w-[192px]" src={Logo} 
+          <img 
+            className="w-[192px]" 
+            src={theme === 'dark' ? LogoLight : LogoDark}
+            alt="Peeksy Logo" 
           />
           <Button 
             variant="outline" 
