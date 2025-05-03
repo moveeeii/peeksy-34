@@ -86,14 +86,14 @@ const Index = () => {
             
             <div className="flex justify-between items-center mb-4">
               <h3 className={`font-medium ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-                Your Images ({images.length})
+                your images ({images.length})
               </h3>
               {images.length > 0 && (
                 <button 
                   onClick={clearAllImages}
                   className="text-sm text-red-500 hover:text-red-700"
                 >
-                  Clear All
+                  clear all
                 </button>
               )}
             </div>
@@ -117,7 +117,7 @@ const Index = () => {
                 ))
               ) : (
                 <div className={`col-span-4 flex items-center justify-center h-full ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-                  No images uploaded yet
+                  no images uploaded yet
                 </div>
               )}
             </div>
