@@ -141,7 +141,7 @@ const Index = () => {
               onOpenSettings={() => setSettingsOpen(true)}
             />
             <p className={`text-center text-sm ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} mt-4`}>
-              Click on username to edit • Drag images to reorder
+              Click on the settings on top right to customize the profile • Drag images to reorder
             </p>
           </div>
         </div>
