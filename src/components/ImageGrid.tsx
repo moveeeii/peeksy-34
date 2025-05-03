@@ -28,7 +28,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images, onReorder }) => {
           <div 
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className={`grid grid-cols-3 gap-[1px] mt-1 ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}
+            className={`grid grid-cols-3 gap-[1px] mt-4 ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}
           >
             {images.map((image, index) => (
               <Draggable key={`image-${index}`} draggableId={`image-${index}`} index={index}>
