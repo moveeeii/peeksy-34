@@ -203,7 +203,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
                 onCheckedChange={handleSwitchChange}
               />
               <Label htmlFor="showStories">
-                {formData.showStories ? "Enabled" : "Disabled"}
+                {formData.showStories ? "enabled" : "disabled"}
               </Label>
             </div>
           </div>
