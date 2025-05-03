@@ -14,18 +14,17 @@ const defaultProfileImage = 'https://images.freeimages.com/image/previews/374/in
 const Index = () => {
   const { theme, setTheme } = useTheme();
   const [images, setImages] = useState<string[]>([]);
-  const [username, setUsername] = useState<string>('architectanddesign');
+  const [username, setUsername] = useState<string>('tumlet.boardgames');
   const [profileImage, setProfileImage] = useState<string>(defaultProfileImage);
   const [showStories, setShowStories] = useState<boolean>(true);
   const [profileInfo, setProfileInfo] = useState({
-    displayName: 'Architecture & Design',
-    bio: 'Architecture',
+    displayName: 'Tumlet',
+    bio: 'Board Game',
     description: [
-      '🌐 The best Architecture & Design platform.',
-      '📩 Contact: info@architectanddesign.net',
+      'Just two friends trying to spread playfulness amongst Nepali young adults.'
     ],
-    website: 'linktr.ee/architectanddesign',
-    followedBy: 'tropicmediaco, _emeraldscity and 20 others'
+    website: 'tumlet.com + 2',
+    followedBy: 'Followed by tsen0wa, saankalpaa, upasanaprdn + 69 more'
   });
   const [stats, setStats] = useState({
     followers: 7500000,
