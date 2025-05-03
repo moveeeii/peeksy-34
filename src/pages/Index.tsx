@@ -27,8 +27,8 @@ const Index = () => {
     followedBy: 'Followed by tsen0wa, saankalpaa, upasanaprdn + 69 more'
   });
   const [stats, setStats] = useState({
-    followers: 7500000,
-    following: 30
+    followers: 444,
+    following: 0
   });
   const [settingsOpen, setSettingsOpen] = useState(false);
 
