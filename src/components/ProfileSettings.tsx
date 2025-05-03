@@ -88,16 +88,16 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
     <Dialog open={open} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Profile Settings</DialogTitle>
+          <DialogTitle>profile settings</DialogTitle>
           <DialogDescription>
-            Customize your Instagram profile preview
+            customize your instagram profile preview
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="username" className="text-right">
-              Username
+              username
             </Label>
             <Input
               id="username"
@@ -110,7 +110,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
           
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="displayName" className="text-right">
-              Display Name
+              display name
             </Label>
             <Input
               id="displayName"
@@ -123,7 +123,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
           
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="bio" className="text-right">
-              Bio
+              category
             </Label>
             <Input
               id="bio"
@@ -136,7 +136,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
           
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="description" className="text-right">
-              Description
+              bio
             </Label>
             <Textarea
               id="description"
@@ -151,7 +151,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
           
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="website" className="text-right">
-              Website
+              website
             </Label>
             <Input
               id="website"
@@ -164,7 +164,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
           
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="followedBy" className="text-right">
-              Followed By
+              followed by
             </Label>
             <Input
               id="followedBy"
@@ -177,7 +177,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
 
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="profileImage" className="text-right">
-              Profile Image
+              profile image
             </Label>
             <div className="col-span-3 flex items-center gap-4">
               <div className="h-12 w-12 rounded-full overflow-hidden">
@@ -194,7 +194,7 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
           
           <div className="grid grid-cols-4 items-center gap-4">
             <Label htmlFor="showStories" className="text-right">
-              Show Stories
+              show stories
             </Label>
             <div className="flex items-center space-x-2 col-span-3">
               <Switch
@@ -211,10 +211,10 @@ const ProfileSettings: React.FC<ProfileSettingsProps> = ({
 
         <DialogFooter>
           <Button type="button" variant="outline" onClick={onClose}>
-            Cancel
+            cancel
           </Button>
           <Button type="button" onClick={handleSave}>
-            Save Changes
+            save changes
           </Button>
         </DialogFooter>
       </DialogContent>
