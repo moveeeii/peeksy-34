@@ -24,7 +24,7 @@ const Index = () => {
       'Just two friends trying to spread playfulness amongst Nepali young adults.'
     ],
     website: 'tumlet.com + 2',
-    followedBy: 'Followed by tsen0wa, saankalpaa, upasanaprdn + 69 more'
+    followedBy: 'tsen0wa, saankalpaa, upasanaprdn + 69 more'
   });
   const [stats, setStats] = useState({
     followers: 444,
