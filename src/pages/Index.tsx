@@ -41,7 +41,7 @@ const Index = () => {
 
   const handleReorder = (newOrder: string[]) => {
     setImages(newOrder);
-    toast.success('Feed order updated');
+    // Toast notification for reordering removed
   };
 
   const clearAllImages = () => {
