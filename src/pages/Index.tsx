@@ -62,7 +62,7 @@ const Index = () => {
     <div className={`min-h-screen py-8 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
       <div className="container px-4 mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <img className="w-[220px]" src={Logo} 
+          <img className="w-[192px]" src={Logo} 
           />
           <Button 
             variant="outline" 
