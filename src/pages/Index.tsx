@@ -16,7 +16,7 @@ const Index = () => {
   const [images, setImages] = useState<string[]>([]);
   const [username, setUsername] = useState<string>('tumlet.boardgames');
   const [profileImage, setProfileImage] = useState<string>(defaultProfileImage);
-  const [showStories, setShowStories] = useState<boolean>(true);
+  const [showStories, setShowStories] = useState<boolean>(false);
   const [profileInfo, setProfileInfo] = useState({
     displayName: 'Tumlet',
     bio: 'Board Game',
