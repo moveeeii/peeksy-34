@@ -18,16 +18,16 @@ const InstagramTabs: React.FC<InstagramTabsProps> = ({ images, onReorder }) => {
   return (
     <Tabs defaultValue="grid" className="w-full">
       <TabsList className={`grid grid-cols-3 border-t ${borderColor} ${theme === 'dark' ? 'bg-[#121212]' : 'bg-white'}`}>
-        <TabsTrigger value="grid" className="flex justify-center py-3 data-[state=active]:border-t-2 data-[state=active]:border-t-black dark:data-[state=active]:border-t-white rounded-none">
+        <TabsTrigger value="grid" className="flex justify-center py-3 data-[state=active]:border-b-2 data-[state=active]:border-b-black dark:data-[state=active]:border-t-white rounded-none">
           <Grid2x2 size={24} />
         </TabsTrigger>
-        <TabsTrigger value="reels" className="flex justify-center py-3 data-[state=active]:border-t-2 data-[state=active]:border-t-black dark:data-[state=active]:border-t-white rounded-none">
+        <TabsTrigger value="reels" className="flex justify-center py-3 data-[state=active]:border-b-2 data-[state=active]:border-b-black dark:data-[state=active]:border-t-white rounded-none">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M2 12c0 3.5 2.5 6.5 6 7.25 3.5.75 7-.5 9-3.5s1.5-7-.5-9.5-5.5-3.5-9-2.75c-3.5.75-6 3.75-6 7.25Z"></path>
             <circle cx="12" cy="12" r="1"></circle>
           </svg>
         </TabsTrigger>
-        <TabsTrigger value="tagged" className="flex justify-center py-3 data-[state=active]:border-t-2 data-[state=active]:border-t-black dark:data-[state=active]:border-t-white rounded-none">
+        <TabsTrigger value="tagged" className="flex justify-center py-3 data-[state=active]:border-b-2 data-[state=active]:border-b-black dark:data-[state=active]:border-t-white rounded-none">
           <Image size={24} />
         </TabsTrigger>
       </TabsList>

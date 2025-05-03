@@ -51,7 +51,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images, onReorder }) => {
             {provided.placeholder}
             {images.length === 0 && (
               <div className={`col-span-3 flex justify-center items-center h-48 ${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}>
-                Upload images to see your grid
+                Tagged photos will appear here
               </div>
             )}
           </div>

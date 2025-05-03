@@ -7,9 +7,9 @@ import ImageUpload from '@/components/ImageUpload';
 import PhoneMockup from '@/components/PhoneMockup';
 import ProfileSettings from '@/components/ProfileSettings';
 import { Button } from '@/components/ui/button';
-
+import Logo from '/peeksy-logo-dark.png' 
 // Default profile image from the provided URL
-const defaultProfileImage = 'https://images.freeimages.com/image/previews/374/instabutton-png-design-5690390.png';
+const defaultProfileImage = '/tumlet-half.png';
 
 const Index = () => {
   const { theme, setTheme } = useTheme();
@@ -62,9 +62,8 @@ const Index = () => {
     <div className={`min-h-screen py-8 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
       <div className="container px-4 mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <h1 className={`text-3xl font-bold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
-            Instagram Feed Preview
-          </h1>
+          <img className="w-[220px]" src={Logo} 
+          />
           <Button 
             variant="outline" 
             size="icon" 
