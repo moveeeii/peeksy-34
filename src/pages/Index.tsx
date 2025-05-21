@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { toast, Toaster } from 'sonner';
 import { Moon, Sun } from 'lucide-react';
@@ -14,16 +15,16 @@ const defaultProfileImage = '/tumlet-half.png';
 const Index = () => {
   const { theme, setTheme } = useTheme();
   const [images, setImages] = useState<string[]>([]);
-  const [username, setUsername] = useState<string>('tumlet.boardgames');
+  const [username, setUsername] = useState<string>('GridGramam');
   const [profileImage, setProfileImage] = useState<string>(defaultProfileImage);
   const [showStories, setShowStories] = useState<boolean>(false);
   const [profileInfo, setProfileInfo] = useState({
-    displayName: 'Tumlet',
+    displayName: 'GridGramam',
     bio: 'Board Game',
     description: [
       'Just two friends trying to spread playfulness amongst Nepali young adults.'
     ],
-    website: 'tumlet.com + 2',
+    website: 'gridgramam.com',
     followedBy: 'tsen0wa, saankalpaa, upasanaprdn + 69 more'
   });
   const [stats, setStats] = useState({
