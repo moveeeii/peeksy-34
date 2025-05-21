@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { toast, Toaster } from 'sonner';
 import { Moon, Sun } from 'lucide-react';
@@ -7,8 +6,7 @@ import ImageUpload from '@/components/ImageUpload';
 import PhoneMockup from '@/components/PhoneMockup';
 import ProfileSettings from '@/components/ProfileSettings';
 import { Button } from '@/components/ui/button';
-import LogoDark from '/peeksy-logo-dark.png';
-import LogoLight from '/peeksy-logo-light.png'; 
+import GridGramamLogo from '@/components/GridGramamLogo';
 
 // Default profile image from the provided URL
 const defaultProfileImage = '/tumlet-half.png';
@@ -63,11 +61,7 @@ const Index = () => {
       <div className="container px-4 mx-auto">
         <div className="flex justify-between items-center mb-6">
           <div className="w-[192px] flex items-center">
-            <img 
-              className="w-full" 
-              src={theme === 'dark' ? LogoLight : LogoDark}
-              alt="GridGramam Logo" 
-            />
+            <GridGramamLogo />
           </div>
           <Button 
             variant="outline" 
