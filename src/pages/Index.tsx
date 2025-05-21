@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { toast, Toaster } from 'sonner';
 import { Moon, Sun } from 'lucide-react';
@@ -9,8 +8,8 @@ import ProfileSettings from '@/components/ProfileSettings';
 import { Button } from '@/components/ui/button';
 import GridGramamLogo from '@/components/GridGramamLogo';
 
-// Default profile image from the provided URL
-const defaultProfileImage = '/tumlet-half.png';
+// Use the uploaded logo image as the default profile image
+const defaultProfileImage = '/lovable-uploads/56b41377-0bea-4291-b2ca-a5b5dbc7ba06.png';
 
 const Index = () => {
   const { theme, setTheme } = useTheme();
