@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { toast, Toaster } from 'sonner';
 import { Moon, Sun } from 'lucide-react';
@@ -61,11 +62,13 @@ const Index = () => {
     <div className={`min-h-screen py-8 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100'}`}>
       <div className="container px-4 mx-auto">
         <div className="flex justify-between items-center mb-6">
-          <img 
-            className="w-[192px]" 
-            src={theme === 'dark' ? LogoLight : LogoDark}
-            alt="Peeksy Logo" 
-          />
+          <div className="w-[192px] flex items-center">
+            <img 
+              className="w-full" 
+              src={theme === 'dark' ? LogoLight : LogoDark}
+              alt="GridGramam Logo" 
+            />
+          </div>
           <Button 
             variant="outline" 
             size="icon" 
